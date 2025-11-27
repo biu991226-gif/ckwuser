@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
+<form id="mainForm" action="login.php" method="post">
 <body id=x>
 <br><br>
 
@@ -11,59 +12,70 @@
 <tr><th colspan="3" class="x2"><center>ちいかわ会員登録</center></th></tr>
 <tr>
   <th colspan="2" class="text-center">
-    <button id="btn-login" class="x4 active" onclick="x()">ログイン</button>
-    <button id="btn-signup" class="x4" onclick="y()">新規登録</button>
+    <button type="button" id="btn-login" class="x4 active" onclick="x()">ログイン</button>
+    <button type="button" id="btn-signup" class="x4" onclick="y()">新規登録</button>
   </th>
 </tr>
 </thead>
 <tbody id="ログイン" style="display:none;">
-<tr><th>メールアカウント</th><td><input type="email" class="xx"></td></tr>
-<tr><th>パスワード</th><td><input type="password" class="xx"></td></tr>
-<tr><th colspan="2"><center><input type="button" value="会員ログイン" class="x4"></center></th></td>
+<tr><th>メールアカウント</th><td><input type="email" class="xx" name="login_email"></td></tr>
+<tr><th>パスワード</th><td><input type="password" class="xx" name="login_password"></td></tr>
+<tr><th colspan="2"><center><input type="button" value="会員ログイン" class="x4" id="login"></center></th></td>
 </tbody>
 <tbody id="新規登録" style="display:none;">
-<tr><th>セイ(姓)</th><td><input type="button" value="必须" class="x3" ><input type="text" class="xx" id="firstName"></td></tr>
-<tr><th>メイ(名)</th><td><input type="button" value="必须" class="x3"><input type="text" class="xx" id="lastName"></td></tr>
-<tr><th>メールアカウント</th><td><input type="button" value="必须" class="x3"><input type="email" class="xx" id="email"></td></tr>
-<tr><th>パスワード</th><td><input type="button" value="必须" class="x3"><input type="password" class="xx" id="password"></td></tr>
-<tr><th colspan="2"><center><input type="button" value="新規登録" class="x4" id="new"></center></th></td>
+<tr><th>セイ(姓)</th><td><input type="button" value="必须" class="x3" ><input type="text" class="xx" id="firstName" name="firstName"></td></tr>
+<tr><th>メイ(名)</th><td><input type="button" value="必须" class="x3"><input type="text" class="xx" id="lastName" name="lastName"></td></tr>
+<tr><th>メールアカウント</th><td><input type="button" value="必须" class="x3"><input type="email" class="xx" id="email" name="email"></td></tr>
+<tr><th>パスワード</th><td><input type="button" value="必须" class="x3"><input type="password" class="xx" id="password" name="password"></td></tr>
+<tr><th colspan="2"><center><input type="button" value="新規登録" class="x4" id="add"></center></th></td>
 </tbody>
 </table>
 </center>
 <div class="result"></div>
-
+<input type="hidden" value="" id="loginFlag" name="loginFlag">
+</body>
 <script type="text/javascript">
-
   $(function(){
 
-            $('#new').on('click',function(){
-                $.ajax({
-                    url:'./ckw.php',
-                    type:'POST',
-                    data:{
-                    	  'firstName':$('#firstName').val(),
-                        'lastName':$('#lastName').val(),
-                        'email':$('#email').val(),
-                        'password':$('#password').val()
-
-                    }
-                })
-                // Ajaxリクエストが成功した時発動
-                .done( (data) => {
-                    $('.result').html(data);
-                    console.log(data);
-                })
-                // Ajaxリクエストが失敗した時発動
-                .fail( (data) => {
-                    $('.result').html(data);
-                    console.log(data);
-                })
-                // Ajaxリクエストが成功・失敗どちらでも発動
-                .always( (data) => {
-                	console.log("送信しました。");
-                });
+            $('#add').on('click',function(){
+            	document.getElementById("loginFlag").value = "1";
+                document.getElementById("mainForm").submit();
+            });
+            $('#login').on('click',function(){
+            	document.getElementById("loginFlag").value = "2";
+                document.getElementById("mainForm").submit();
             });
         });
+  // $(function(){
+
+  //           $('#new').on('click',function(){
+  //               $.ajax({
+  //                   url:'./login.php',
+  //                   type:'POST',
+  //                   data:{
+  //                   	  'firstName':$('#firstName').val(),
+  //                       'lastName':$('#lastName').val(),
+  //                       'email':$('#email').val(),
+  //                       'password':$('#password').val()
+
+  //                   }
+  //               })
+  //               // Ajaxリクエストが成功した時発動
+  //               .done( (data) => {
+  //                   $('.result').html(data);
+  //                   console.log(data);
+  //               })
+  //               // Ajaxリクエストが失敗した時発動
+  //               .fail( (data) => {
+  //                   $('.result').html(data);
+  //                   console.log(data);
+  //               })
+  //               // Ajaxリクエストが成功・失敗どちらでも発動
+  //               .always( (data) => {
+  //               	console.log("送信しました。");
+  //               });
+  //           });
+  //       });
 
 	function x(){
 	document.getElementById("ログイン").style.display= "block";
@@ -74,6 +86,9 @@ function y(){
 	document.getElementById("新規登録").style.display= "block";
 }
 </script>
+</form>
+
+
 
 
 <style> 
