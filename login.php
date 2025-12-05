@@ -37,8 +37,6 @@ if($res->num_rows==0){
 
 echo "这个用户不存在！".$sql;
 }else{ 
-	header("Location: sh.html");
-    exit();
 $_SESSION["email"]= $email;
 echo "登录成功";
 echo "<a href='my.php'>自己的信息</a>";

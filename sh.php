@@ -18,7 +18,7 @@ if($res->num_rows==0){
 echo "这个用户不存在！";
 }else{
 
-echo $email. "<button>加好友</button>";
+echo $email. '<input type="button" value="加好友" class="x4" id="addFriend" onclick="addFriend()">';
 
 }
 

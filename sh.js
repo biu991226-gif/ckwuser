@@ -15,5 +15,21 @@ $(function(){
 				
 				})
 	});	
+			
 				
 		});
+
+function addFriend(){
+				$.ajax({
+					url:'./add_frend.php',
+					type:'POST',
+					data:{
+						'to':$('#email').val()
+					}
+				})
+				// Ajaxリクエストが成功した時発動
+				.done( (data) => {
+					$('#res').html(data);
+				})
+	
+}
