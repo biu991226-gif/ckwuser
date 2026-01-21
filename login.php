@@ -9,7 +9,7 @@ if($flag == "1"){
     $password = $_POST["password"];
 
 
-$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+$link = mysqli_connect("43.206.154.211", "user", "Password123!", "mzx991226_zhixin");
 
 $sql ="INSERT INTO `users`(`firstName`,`lastName`,`email`, `password`) VALUES ('$firstname','$lastname','$email','$password ')";
 $res = mysqli_query($link, $sql);
@@ -26,7 +26,7 @@ $password = $_POST["login_password"];
 
 
 
-$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+$link = mysqli_connect("43.206.154.211", "user", "Password123!", "mzx991226_zhixin");
 
 $sql ="SELECT email, password FROM `users` 
 WHERE 

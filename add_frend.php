@@ -7,7 +7,7 @@ $to = $_POST["to"];
 
 
 
-$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+$link = mysqli_connect("43.206.154.211", "user", "Password123!", "mzx991226_zhixin");
 
 $sql ="INSERT INTO `friend`(`from`, `to`, `status`) VALUES ('$from','$to', 0)";
 

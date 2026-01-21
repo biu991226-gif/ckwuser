@@ -4,7 +4,7 @@ session_start();
 $email = $_SESSION["email"];
 
 
-$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+$link = mysqli_connect("43.206.154.211", "user", "Password123!", "mzx991226_zhixin");
 
 // 搜索好友邮件地址
 $sql1 ="SELECT `to` FROM `friend` 

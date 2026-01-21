@@ -8,7 +8,7 @@ $content = $_POST["content"];
 
 
 
-$link = mysqli_connect("mysql3101.db.sakura.ne.jp", "mzx991226_zhixin", "mzx991226", "mzx991226_zhixin");
+$link = mysqli_connect("43.206.154.211", "user", "Password123!", "mzx991226_zhixin");
 
 $sql ="INSERT INTO `moments`(`from`,`time`,`content`) VALUES ('$from','$time','$content')";
 
