@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>MyPage</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="my.js"></script>
 <link rel="stylesheet" href="common.css">
 </head>
 <body id="x">
@@ -16,6 +15,7 @@
   <br>
   <hr><br>
 
+  <form action="my.php" method="post">
   <center>
     <table class="x1 table-like">
       <thead>
@@ -28,21 +28,21 @@
         <tr>
           <th class="lbl">信箱</th>
           <td>
-            <input type="email" id="email" class="xx" value="">
+            <input type="email" id="email" name="email" class="xx" value="<?php echo $email; ?>">
           </td>
         </tr>
 
         <tr>
           <th class="lbl">密码</th>
           <td>
-            <input type="password" id="password" class="xx" value="">
+            <input type="password" id="password" name="password" class="xx" value="<?php echo $password; ?>">
           </td>
         </tr>
 
         <tr>
           <th class="lbl"></th>
           <td>
-            <input type="button" value="保存" class="x4" id="save" onclick="save()">
+            <input type="submit" name="save" value="保存" class="x4">
             <span id="res" class="resbox"></span>
           </td>
         </tr>
@@ -51,7 +51,7 @@
   </center>
 
   <style>
-    /* 背景图（如果你这个页面也要） */
+    /* 背景图 */
     #x{
       background-image: url(chiikawa.jpeg);
       background-size:auto 100%;
@@ -64,7 +64,6 @@
       border-spacing: 0 12px;
     }
 
-    /* 维持你原来的卡片感（如果 common.css 里已有 x1 可删这段） */
     .x1{
       background-color: rgba(255, 255, 255, 0.3);
       width: 40%;
@@ -114,10 +113,6 @@
       min-height: 18px;
     }
   </style>
+</form>
 </body>
-
-
-</body>
-
-
 </html>
